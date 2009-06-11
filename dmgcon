@@ -106,7 +106,7 @@ if [ -f "${COMPRESSEDFILE}" ]; then
    ##
    # Output: display the old and new file sizes
    ##
-   ls -alF "${BACKUPFILE}" "${ORIGINALFILE}"
+   ls -alFh "${BACKUPFILE}" "${ORIGINALFILE}"
 else
    # something went wrong
    echo "Sorry, the disk image '${ORIGINALFILE}' could not be converted."
