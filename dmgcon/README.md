@@ -1,6 +1,8 @@
 dmgcon
+======
 
 version 2.0, 2003-03-25
+-----------------------
 
 Shrink Mac OS X disk images to minimum size.
 dmg images are also converted to UDZO (read-only compressed).
@@ -15,6 +17,7 @@ echo "complete dmgcon 'p/*/f:*.{dmg,img}/'" >> ~/Library/init/tcsh/completions.m
 This 'sh' shell script is public domain.
 
 Last modified:
+--------------
 2009-06-11 Frederic Wenzel <fwenzel@mozilla.com>
 2003-03-25 Carsten Klapp <carstenklapp@yahoo.ca>
 
