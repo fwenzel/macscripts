@@ -41,7 +41,14 @@ if [ $# -ne 1 ]; then
     echo "usage: makedvd filename-without-extension"
     exit
 fi
-mplex -f8 -o tmp_${1}.mpg ${1}.m2v ${1}.m1a
-dvdauthor -o DVD${1}/ tmp_${1}.mpg
-dvdauthor -o DVD${1}/ -T
-rm tmp_${1}.mpg
+
+# determine audio stream
+if [ -f "${1}.m1a" ]; then
+    AUDIO="${1}.m1a"
+elif [ -f "${1}.mp2" ]; then
+    AUDIO="${1}.mp2"
+fi
+mplex -f8 -o "tmp_${1}.mpg" "${1}.m2v" "$AUDIO"
+dvdauthor -o "DVD${1}/" "tmp_${1}.mpg"
+dvdauthor -o "DVD${1}/" -T
+rm "tmp_${1}.mpg"
