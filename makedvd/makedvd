@@ -52,5 +52,6 @@ TARGET_DIR="DVD_${1}/"
 TMP_FILE="tmp_${1}.mpg"
 
 mplex -f8 -o "$TMP_FILE" "${1}.m2v" "$AUDIO"
+dvdauthor -t -o "$TARGET_DIR" "$TMP_FILE"
 dvdauthor -o "$TARGET_DIR" -T
 rm "$TMP_FILE"
