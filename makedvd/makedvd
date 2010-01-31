@@ -48,7 +48,9 @@ if [ -f "${1}.m1a" ]; then
 elif [ -f "${1}.mp2" ]; then
     AUDIO="${1}.mp2"
 fi
-mplex -f8 -o "tmp_${1}.mpg" "${1}.m2v" "$AUDIO"
-dvdauthor -o "DVD${1}/" "tmp_${1}.mpg"
-dvdauthor -o "DVD${1}/" -T
-rm "tmp_${1}.mpg"
+TARGET_DIR="DVD_${1}/"
+TMP_FILE="tmp_${1}.mpg"
+
+mplex -f8 -o "$TMP_FILE" "${1}.m2v" "$AUDIO"
+dvdauthor -o "$TARGET_DIR" -T
+rm "$TMP_FILE"
